@@ -2,6 +2,8 @@ import React,{useState,useEffect,useRef} from 'react'
 import UserRef from './UserRef'
 import Parent from './props/Parent'
 import A from './ContextApi/A'
+import UseReducer from './UseReducer.jsx/UseReducer'
+import StateManagement from './UseReducer.jsx/StateManagement'
 
 // const App = () => {
 //   // let count = 0
@@ -70,9 +72,11 @@ import A from './ContextApi/A'
 const App = () => {
   return (
     <div>
-      <UserRef/>
+      {/* <UserRef/> */}
       {/* <Parent/> */}
       {/* <A/> */}
+      <UseReducer/>
+      {/* <StateManagement/> */}
     </div>
   )
 }
