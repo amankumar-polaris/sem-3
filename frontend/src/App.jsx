@@ -4,6 +4,7 @@ import Parent from './props/Parent'
 import A from './ContextApi/A'
 import UseReducer from './UseReducer.jsx/UseReducer'
 import StateManagement from './UseReducer.jsx/StateManagement'
+import ProductListing from './ProductListing'
 
 // const App = () => {
 //   // let count = 0
@@ -75,8 +76,9 @@ const App = () => {
       {/* <UserRef/> */}
       {/* <Parent/> */}
       {/* <A/> */}
-      <UseReducer/>
+      {/* <UseReducer/> */}
       {/* <StateManagement/> */}
+      <ProductListing/>
     </div>
   )
 }
