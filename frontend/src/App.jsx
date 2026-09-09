@@ -1,10 +1,12 @@
-import React,{useState,useEffect,useRef} from 'react'
-import UserRef from './UserRef'
-import Parent from './props/Parent'
-import A from './ContextApi/A'
-import UseReducer from './UseReducer.jsx/UseReducer'
-import StateManagement from './UseReducer.jsx/StateManagement'
-import ProductListing from './ProductListing'
+import React, { useState, useEffect, useRef } from "react";
+import UserRef from "./UserRef";
+import Parent from "./props/Parent";
+import A from "./ContextApi/A";
+import UseReducer from "./UseReducer.jsx/UseReducer";
+import StateManagement from "./UseReducer.jsx/StateManagement";
+import ProductListing from "./redux/ProductListing";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Cart from "./redux/Cart";
 
 // const App = () => {
 //   // let count = 0
@@ -19,7 +21,7 @@ import ProductListing from './ProductListing'
 //   // console.log(count,'count') //0=>8,1=>2
 //   return (
 //     <div>
-//       <h1>{count}</h1> 
+//       <h1>{count}</h1>
 //       {/* 0=>9, 1=>0 */}
 //       {/* <button onClick = {handleClick}>click me</button> */}
 //     </div>
@@ -35,7 +37,7 @@ import ProductListing from './ProductListing'
 //     console.log(count,'count')
 //     console.log(value,'value')
 //   },[count])
-  
+
 //   return (
 //     <div>
 //       {/* <h1>{count}</h1> */}
@@ -46,8 +48,6 @@ import ProductListing from './ProductListing'
 // }
 
 // export default App
-
-
 
 // const App = () => {
 //   const inputRef = useRef(null)
@@ -65,12 +65,8 @@ import ProductListing from './ProductListing'
 
 // export default App
 
-
-
-
-
-
 const App = () => {
+  
   return (
     <div>
       {/* <UserRef/> */}
@@ -78,12 +74,18 @@ const App = () => {
       {/* <A/> */}
       {/* <UseReducer/> */}
       {/* <StateManagement/> */}
-      <ProductListing/>
+      {/* <ProductListing/> */}
+      
+        
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ProductListing />} />
+          <Route path="cart" element={<Cart />} />
+        </Routes>
+      </BrowserRouter>
+      
     </div>
-  )
-}
+  );
+};
 
-export default App
-
-
-
+export default App;
