@@ -51,7 +51,8 @@ const ProductListing = () => {
 
       <div className="grid gap-3">
         {productList.map((item) => (
-          <div className="border">
+          <div className="border" key={item.id}>
+            <p>{item.id}</p>
             <h2>{item.title}</h2>
             <h3>{item.price}</h3>
             <button onClick={()=>dispatch(manageProducts(item))}>Add to cart</button>
