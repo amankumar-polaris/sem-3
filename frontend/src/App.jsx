@@ -7,6 +7,7 @@ import StateManagement from "./UseReducer.jsx/StateManagement";
 import ProductListing from "./redux/ProductListing";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./redux/Cart";
+import ReduxThunk from "./redux/ReduxThunk";
 
 // const App = () => {
 //   // let count = 0
@@ -66,7 +67,6 @@ import Cart from "./redux/Cart";
 // export default App
 
 const App = () => {
-  
   return (
     <div>
       {/* <UserRef/> */}
@@ -75,15 +75,14 @@ const App = () => {
       {/* <UseReducer/> */}
       {/* <StateManagement/> */}
       {/* <ProductListing/> */}
-      
-        
-      <BrowserRouter>
+
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<ProductListing />} />
           <Route path="cart" element={<Cart />} />
         </Routes>
-      </BrowserRouter>
-      
+      </BrowserRouter> */}
+      <ReduxThunk />
     </div>
   );
 };
