@@ -8,6 +8,8 @@ import ProductListing from "./redux/ProductListing";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./redux/Cart";
 import ReduxThunk from "./redux/ReduxThunk";
+import {RTKQuery} from "./redux/RTKQuery.jsx";
+
 
 // const App = () => {
 //   // let count = 0
@@ -82,7 +84,8 @@ const App = () => {
           <Route path="cart" element={<Cart />} />
         </Routes>
       </BrowserRouter> */}
-      <ReduxThunk />
+      {/* <ReduxThunk /> */}
+      <RTKQuery />
     </div>
   );
 };

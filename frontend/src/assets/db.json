@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/json-server/schema.json",
+  "posts": [
+    {
+      "title": "qwertyy",
+      "id": 1
+    },
+    {
+      "title": "abc",
+      "price": 20000,
+      "id": 3
+    }
+  ]
+}
