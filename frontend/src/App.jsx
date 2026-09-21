@@ -8,8 +8,12 @@ import ProductListing from "./redux/ProductListing";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./redux/Cart";
 import ReduxThunk from "./redux/ReduxThunk";
-import {RTKQuery} from "./redux/RTKQuery.jsx";
-
+import { RTKQuery } from "./redux/RTKQuery.jsx";
+import UseMemo from "./optimization/UseMemo.jsx";
+import ParentComponent from "./optimization/useCallback/ParentComponent.jsx";
+import UseTransition from "./optimization/UseTransition.jsx";
+import Debouncing from "./optimization/Debouncing.jsx";
+import UseDeferredValue from "./optimization/UseDeferredValue.jsx";
 
 // const App = () => {
 //   // let count = 0
@@ -85,7 +89,12 @@ const App = () => {
         </Routes>
       </BrowserRouter> */}
       {/* <ReduxThunk /> */}
-      <RTKQuery />
+      {/* <RTKQuery /> */}
+      {/* <UseMemo /> */}
+      {/* <ParentComponent /> */}
+      {/* <UseTransition /> */}
+      {/* <Debouncing />   */}
+      <UseDeferredValue />
     </div>
   );
 };
