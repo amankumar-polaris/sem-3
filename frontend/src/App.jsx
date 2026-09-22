@@ -15,6 +15,7 @@ import UseTransition from "./optimization/UseTransition.jsx";
 import Debouncing from "./optimization/Debouncing.jsx";
 import UseDeferredValue from "./optimization/UseDeferredValue.jsx";
 
+import LazyParent from "./lazy_loading/LazyParent.jsx";
 // const App = () => {
 //   // let count = 0
 //   const[count,setCount] = useState(0)
@@ -94,7 +95,8 @@ const App = () => {
       {/* <ParentComponent /> */}
       {/* <UseTransition /> */}
       {/* <Debouncing />   */}
-      <UseDeferredValue />
+      {/* <UseDeferredValue /> */}
+    <LazyParent/>
     </div>
   );
 };
