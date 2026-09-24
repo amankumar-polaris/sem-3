@@ -38,10 +38,87 @@ export const createStudent = async(req,res)=>{
 }
 
 export const findStudentByEmail = async(req,res)=>{
-    const student = await Student.findByEmail(req.body.email)
+    // const student = await Student.findByEmail(req.body.email)
+    const student = await Student.fin
 
     if(!student)
         return res.status(401).json({message:"Invalid email"})
 
     return res.status(200).json(student)
 }
+
+export const findStudent = async(req,res)=>{
+    const student = await Student.aggregate([
+        //stage1
+        {
+            $match:
+            {
+                profession:"Software Development",
+                age:{$gt:"20"}
+            }
+        },
+        //stage2
+        {
+            $project:
+            {
+                firstname:1,
+                lastname:1,
+                age:1
+            }
+        },
+        // //stage3
+        {
+            $group:
+            {
+                _id:null,
+                totalAge:
+                {
+                    $sum:"$age"
+                },
+                averageAge:{
+                    $avg:"$age"
+                },
+                totalStudent:{
+                    $sum:1
+                },
+                maxAge:
+                {
+                    $max:"$age"
+                },
+                minAge:
+                {
+                    $min:"$age"
+                }
+            }
+        }
+    ])
+    return res.json(student)
+}
+
+export const updateAge = async (req, res) => {
+  try {
+    const result = await Student.updateMany(
+      {},
+      [
+        {
+          $set: {
+            age: { $toInt: "$age" }
+          }
+        }
+      ],
+      {
+        updatePipeline: true
+      }
+    );
+
+    res.json({
+      message: "Age updated successfully",
+      result
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: error.message
+    });
+  }
+};

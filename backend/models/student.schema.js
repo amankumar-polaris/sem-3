@@ -7,6 +7,7 @@ const studentSchema = new mongoose.Schema({
     skills:[String],
     email:String,
     password:String,
+    age:Number
 })
 
 studentSchema.pre('save',async function(){
