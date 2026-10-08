@@ -8,4 +8,4 @@ const studentCourseSchema = new mongoose.Schema({
     }
 })
 
-export const StudentCourse = mongoose.model('StudentCourse', studentCourseSchema, 'studentcourses')
+export const StudentCourse = mongoose.model('StudentCourse', studentCourseSchema)

@@ -3,7 +3,13 @@ import { Student } from "./student.schema.js";
 import bcrypt from 'bcrypt'
 
 const newStudentSchema = new mongoose.Schema({
-    isFresher:Boolean
+    studentname:String,
+    subjects:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Subject"
+        }
+    ]
 })
 
-export const NewStudent = Student.discriminator('NewStudent',newStudentSchema)
+export const NewStudent = mongoose.model('NewStudent',newStudentSchema)

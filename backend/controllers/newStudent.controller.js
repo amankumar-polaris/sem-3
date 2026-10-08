@@ -1,16 +1,26 @@
+import mongoose from "mongoose"
 import { StudentCourse } from "../models/course.schema.js"
 import { NewStudent } from "../models/newStudent.schema.js"
+import { Student } from "../models/student.schema.js"
 
 export const createNewStudent = async(req,res)=>{
-    const {firstname,lastname,email,skills,profession,password,isFresher,coursename} = req.body
+    const {studentname,subjectIds} = req.body
 
-   const student = await NewStudent.create({firstname,lastname,email,skills,profession,password,isFresher})
 
-   await StudentCourse.create({coursename,studentId:student._id})
+    await NewStudent.create({studentname:studentname,subjects:subjectIds})
 
-    return res.status(200).json({message:"new student onboarded!!!"})
+
+    return res.status(200).json({ message:"new student onboarded!!!" })
 }
 
+export const getStudentData = async(req,res)=>{
+    
+
+    const student = await NewStudent.findById(req.body._id).populate('subjects')
+
+    console.log(student,'std')
+    res.json(student)
+}
 export const studentDetails = async(req,res)=>{
     const details = await NewStudent.aggregate([
         // {
@@ -44,9 +54,13 @@ export const studentDetails = async(req,res)=>{
     return res.json(details)
 }
 
-export const updateStudentAge = async(req,res)=>{
-    
-    const update = await NewStudent.findByIdAndUpdate(req.body.id,{$set:{age:req.body.age}},{new:true})
+export const findStudentCourse = async(req,res)=>{
+    try {
 
-    return res.json(update)
+        const courses = await StudentCourse.findOne({studentId:req.body.studentId}).populate("studentId")
+        return res.json(courses)
+    } catch (error) {
+        console.log(error)
+        return res.status(400).json({ message: error.message })
+    }
 }

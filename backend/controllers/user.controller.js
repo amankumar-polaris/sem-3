@@ -1,8 +1,18 @@
+import { validatInfo } from "../middleware/validate.js"
 import { User } from "../models/user.schema.js"
 
 export const createUser = async(req,res)=>{
-    const {firstName,lastName,email,password,age} = req.body
-    await User.create({firstName,lastName,email,password,age})
+    // const {firstName,lastName,email,password,age} = req.body
+
+    console.log(req.body)
+    const {data,error} = validatInfo.safeParse(req.body)
+
+    if(error)
+        return res.json(error.issues[0].message)
+   
+
+    // res.json(data)
+    await User.create(data)
 
     return res.status(201).json({message:'User created succesfully!!!'})
 }
