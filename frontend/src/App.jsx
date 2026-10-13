@@ -16,6 +16,7 @@ import Debouncing from "./optimization/Debouncing.jsx";
 import UseDeferredValue from "./optimization/UseDeferredValue.jsx";
 
 import LazyParent from "./lazy_loading/LazyParent.jsx";
+import ServerSentEvent from "./communication/ServerSentEvent.jsx";
 // const App = () => {
 //   // let count = 0
 //   const[count,setCount] = useState(0)
@@ -96,7 +97,7 @@ const App = () => {
       {/* <UseTransition /> */}
       {/* <Debouncing />   */}
       {/* <UseDeferredValue /> */}
-    <LazyParent/>
+    <ServerSentEvent/>
     </div>
   );
 };
