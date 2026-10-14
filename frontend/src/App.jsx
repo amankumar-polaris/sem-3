@@ -17,6 +17,7 @@ import UseDeferredValue from "./optimization/UseDeferredValue.jsx";
 
 import LazyParent from "./lazy_loading/LazyParent.jsx";
 import ServerSentEvent from "./communication/ServerSentEvent.jsx";
+import ChatApp from "./communication/ChatApp.jsx";
 // const App = () => {
 //   // let count = 0
 //   const[count,setCount] = useState(0)
@@ -97,7 +98,8 @@ const App = () => {
       {/* <UseTransition /> */}
       {/* <Debouncing />   */}
       {/* <UseDeferredValue /> */}
-    <ServerSentEvent/>
+    {/* <ServerSentEvent/> */}
+    <ChatApp/>
     </div>
   );
 };
